@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.teleskill.beans.Device;
+
 import com.teleskill.data.DeviceRepository;
 
 @Service
@@ -25,6 +26,17 @@ public class DeviceService {
 	
 	public List<Device> findAll(){
 		return repository.findAll();
+	}
+	public Device find(int id) {
+		return repository.findById(id).get();
+	}
+	
+	public void delete(int id) {
+		 repository.deleteById(id);
+	}
+	
+	public Device update( Device device, int id) {
+		 return repository.save(device);
 	}
 
 }
