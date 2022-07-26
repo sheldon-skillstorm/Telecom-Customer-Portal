@@ -6,49 +6,48 @@
     <mat-card-title class="price">Level 1</mat-card-title>
     <mat-card-subtitle>The Basics.</mat-card-subtitle>
     <mat-card-content>
-      <p class="price inline-block">$30</p><p class="inline-block">/mo.</p>
+      <p class="price inline-block">$30</p><p class="inline-block">/mo. per line</p>
       <p style="font-size:small">Taxes and fees included.</p><br>
       <mat-card-actions style="display:flex;">
-        <button mat-raised-button class="planButton">Select plan</button>
-      </mat-card-actions>
-      <p class="content">50 GB high-speed data</p><br>
+        <button mat-raised-button class="planButton" (click)="goToCart(); storePlan('Level 1')">Select plan</button>
+      </mat-card-actions> 
+      <p class="content">25 GB high-speed data</p><br>
       <p class="content">3G Unlimited mobile hotspot</p><br>
       <p class="content">Standard-definition streaming</p><br>
       <p class="content">Unlimited talk & text</p><br>
-      <p class="content">2 line limit</p><br>
+      <p class="content">2 device limit</p><br>
     </mat-card-content>
   </mat-card> 
   <mat-card class="inline-block" style="margin-left: 30px; margin-right: 30px; width: 300px">
     <mat-card-title class="price">Level 2</mat-card-title>
     <mat-card-subtitle>More features.</mat-card-subtitle>
     <mat-card-content>
-      <p class="price inline-block">$50</p><p class="inline-block">/mo.</p>
+      <p class="price inline-block">$50</p><p class="inline-block">/mo. per line</p>
       <p style="font-size:small">Taxes and fees included.</p><br>
       <mat-card-actions style="display:flex;">
-        <button mat-raised-button class="planButton">Select plan</button>
+        <button mat-raised-button class="planButton" (click)="goToCart(); storePlan('Level 2')">Select plan</button>
       </mat-card-actions>
       <p class="content">Unlimited high-speed data</p><br>
       <p class="content">20 GB high-speed mobile hotspot</p><br>
       <p class="content">High-definition streaming</p><br>
       <p class="content">Unlimited talk & text</p><br>
-      <p class="content">3 line limit</p><br>
+      <p class="content">3 device limit</p><br>
     </mat-card-content>
   </mat-card> 
   <mat-card class="inline-block" style="width: 300px">
     <mat-card-title class="price">Level 3</mat-card-title>
     <mat-card-subtitle>For the family.</mat-card-subtitle>
     <mat-card-content>
-      <p class="price inline-block">$25</p><p class="inline-block">/mo. for 3+ phone lines</p>
+      <p class="price inline-block">$25</p><p class="inline-block">/mo. per line (3 line min.)</p>
       <p style="font-size:small">Taxes and fees included.</p><br>
       <mat-card-actions style="display:flex;">
-        <button mat-raised-button class="planButton">Select plan</button>
+        <button mat-raised-button class="planButton" (click)="goToCart(); storePlan('Level 3')">Select plan</button>
       </mat-card-actions>
       <p class="content">100 GB high-speed data</p><br>
       <p class="content">10 GB high-speed mobile hotspot</p><br>
       <p class="content">Standard-definition streaming</p><br>
       <p class="content">Unlimited talk & text</p><br>
-      <p class="content">3 line minimum</p><br>
-      <p class="content">7 line limit</p><br>
+      <p class="content">7 device limit</p><br>
     </mat-card-content>
   </mat-card> 
 </div>
