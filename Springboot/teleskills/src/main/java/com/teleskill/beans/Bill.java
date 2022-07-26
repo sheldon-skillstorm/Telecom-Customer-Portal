@@ -48,8 +48,6 @@ public class Bill {
 		
 	}
 	
-
-
 	public Bill(int id, Date invoicedate, String billingaddress, String billingcity, String billingstate,
 			String billingcountry, String billingpostalcode, double total, Customer customer) {
 		super();
@@ -63,7 +61,6 @@ public class Bill {
 		this.total = total;
 		this.customer = customer;
 	}
-
 
 	public int getId() {
 		return id;
@@ -130,7 +127,6 @@ public class Bill {
 	}
 	
 	
-
 	public Customer getCustomer() {
 		return customer;
 	}
