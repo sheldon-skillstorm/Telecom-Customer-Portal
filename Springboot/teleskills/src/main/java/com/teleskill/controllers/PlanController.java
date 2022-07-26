@@ -46,7 +46,6 @@ public class PlanController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Plan>  getPlan(@PathVariable int id) {
-		//System.out.println("name: " + name);
 		return new ResponseEntity<Plan> (service.find(id),HttpStatus.OK) ;
 	}
 	
