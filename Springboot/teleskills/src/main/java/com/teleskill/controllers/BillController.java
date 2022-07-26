@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teleskill.beans.Bill;
@@ -20,6 +21,7 @@ import com.teleskill.service.BillService;
 
 
 @RestController
+@RequestMapping("/bills/v1")
 public class BillController {
 	
 	@Autowired
@@ -29,31 +31,31 @@ public class BillController {
 		System.out.println("Controller created!");
 	}
 	
-	@PostMapping("/teleskill/bills")
+	@PostMapping
 	public ResponseEntity<Bill>  save(@RequestBody Bill bill) {
 		System.out.println("Post called");
 		return new ResponseEntity<>(service.save(bill) ,HttpStatus.CREATED);
 		
 	}
 	
-	@GetMapping("/teleskill/bills")
+	@GetMapping
 	public ResponseEntity<List<Bill>> findAll() {
 		System.out.println("Get called");
 		return new ResponseEntity<List<Bill>>(service.findAll() ,HttpStatus.OK);
 	}
 	
-	@GetMapping("/teleskill/bills/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Bill>  getBill(@PathVariable int id) {
 		//System.out.println("name: " + name);
 		return new ResponseEntity<Bill> (service.find(id),HttpStatus.OK) ;
 	}
 	
-	@DeleteMapping("/teleskill/bills/{id}")
+	@DeleteMapping("/{id}")
 	public void deleteBill(@PathVariable int id){
 		 service.delete(id) ;
 	}
 	
-	@PutMapping("/teleskill/bills/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Bill>  update(@RequestBody Bill bill, @PathVariable int id) {
 		
 		return new ResponseEntity<Bill> (service.update(bill, id),HttpStatus.OK) ;

@@ -1,12 +1,21 @@
 package com.teleskill.beans;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 @Entity
+@Table(name = "customer")
 public class Customer {
 	
 	@Id
@@ -34,6 +43,12 @@ public class Customer {
 	@Column
 	private String postalcode;
 	
+	@OneToMany(mappedBy = "customer")
+	//whichever one has the "mappedby"
+	@JsonIgnore
+	//@JsonBackReference("ownerVehicles") // a name you can link to
+	private Set<Plan> plans;
+	
 	public Customer() {
 		super();
 		
@@ -41,7 +56,7 @@ public class Customer {
 
 
 	public Customer(int id, String firstname, String lastname, String address, String city, String state,
-			String country, String postalcode) {
+			String country, String postalcode, Set<Plan> plans) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -51,7 +66,9 @@ public class Customer {
 		this.state = state;
 		this.country = country;
 		this.postalcode = postalcode;
+		this.plans = plans;
 	}
+
 
 	public int getId() {
 		return id;
@@ -116,12 +133,27 @@ public class Customer {
 	public void setPostalcode(String postalcode) {
 		this.postalcode = postalcode;
 	}
+	
+	
+
+	public Set<Plan> getPlans() {
+		return plans;
+	}
+
+
+	public void setPlans(Set<Plan> plans) {
+		this.plans = plans;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", address=" + address
-				+ ", city=" + city + ", state=" + state + ", country=" + country + ", postalcode=" + postalcode + "]";
+				+ ", city=" + city + ", state=" + state + ", country=" + country + ", postalcode=" + postalcode
+				+ ", plans=" + plans + "]";
 	}
+
+
 	
 	
 	
