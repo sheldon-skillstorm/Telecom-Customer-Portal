@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Bill {
@@ -36,13 +38,20 @@ public class Bill {
 	@Column
 	private double total;
 	
+	@ManyToOne
+	@JoinColumn(name = "customerid")
+	//@JsonManagedReference("ownerVehicles")
+	private Customer customer;
+	
 	public Bill() {
 		super();
 		
 	}
+	
+
 
 	public Bill(int id, Date invoicedate, String billingaddress, String billingcity, String billingstate,
-			String billingcountry, String billingpostalcode, double total) {
+			String billingcountry, String billingpostalcode, double total, Customer customer) {
 		super();
 		this.id = id;
 		this.invoicedate = invoicedate;
@@ -52,7 +61,9 @@ public class Bill {
 		this.billingcountry = billingcountry;
 		this.billingpostalcode = billingpostalcode;
 		this.total = total;
+		this.customer = customer;
 	}
+
 
 	public int getId() {
 		return id;
@@ -117,15 +128,27 @@ public class Bill {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	
+	
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+
 
 	@Override
 	public String toString() {
 		return "Bill [id=" + id + ", invoicedate=" + invoicedate + ", billingaddress=" + billingaddress
 				+ ", billingcity=" + billingcity + ", billingstate=" + billingstate + ", billingcountry="
-				+ billingcountry + ", billingpostalcode=" + billingpostalcode + ", total=" + total + "]";
+				+ billingcountry + ", billingpostalcode=" + billingpostalcode + ", total=" + total + ", customer="
+				+ customer + "]";
 	}
-
-	
 	
 	
 }

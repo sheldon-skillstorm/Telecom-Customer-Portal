@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teleskill.beans.Customer;
@@ -19,6 +20,7 @@ import com.teleskill.service.CustomerService;
 
 
 @RestController
+@RequestMapping("/customers/v1")
 public class CustomerController {
 	
 	
@@ -31,31 +33,31 @@ public class CustomerController {
 		
 	}
 	
-	@PostMapping("/teleskill/customers")
+	@PostMapping
 	public ResponseEntity<Customer> save( @RequestBody Customer customer) {
 		System.out.println("Post called");
 		return new ResponseEntity<>(service.save(customer) ,HttpStatus.CREATED);
 		
 	}
 	
-	@GetMapping("/teleskill/customers")
+	@GetMapping
 	public ResponseEntity<List<Customer>> findAll() {
 		System.out.println("Get called");
 		return new ResponseEntity<List<Customer>>(service.findAll() ,HttpStatus.OK);
 		
 	}
-	@GetMapping("/teleskill/customers/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Customer>  getCustomer(@PathVariable int id) {
 		//System.out.println("name: " + name);
 		return new ResponseEntity<Customer> (service.find(id),HttpStatus.OK) ;
 	}
 	
-	@DeleteMapping("/teleskill/customers/{id}")
+	@DeleteMapping("/{id}")
 	public void deleteCustomer(@PathVariable int id){
 		 service.delete(id) ;
 	}
 	
-	@PutMapping("/teleskill/customers/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Customer>  update(@RequestBody Customer customer, @PathVariable int id) {
 		
 		return new ResponseEntity<Customer> (service.update(customer, id),HttpStatus.OK) ;
