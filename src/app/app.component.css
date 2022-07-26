@@ -22,3 +22,13 @@ hr.line {
   border-width: 0;
   background-color:#ca73df6f;
 }
+
+mat-icon {
+  color:rgb(64, 63, 63); 
+  padding-right: 10px; 
+  font-size: 19px;
+}
+
+.mat-badge-small.mat-badge-above .mat-badge-content {
+  right: 0px;
+}
