@@ -11,12 +11,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 
 	
@@ -31,13 +36,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
-//		http.authorizeRequests()
-////		           .antMatchers("/").hasAnyRole("ADMIN","USER")
-//		           .antMatchers("/**").permitAll();
-	           http.cors().and().csrf().disable();
+		http.authorizeRequests()
+		           .anyRequest()
+		           .authenticated()
+		           .and()
+		           .formLogin()
+		           .loginPage("/login")
+		           .permitAll();
+//		           .and()
+//	               .cors()
+//	               .and()
+//	               .csrf()
+//	               .disable();
 	}
 	
-	
+	@Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 	    @Bean
 	    CorsConfigurationSource corsConfigurationSource() {
@@ -51,4 +67,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	        return source;
 	    }
 	
+	
+//	@Override
+//	public void addCorsMappings(CorsRegistry registry) {
+//		registry.addMapping("/**")
+//		        .allowedOrigins("*")
+//		        .allowedMethods("*");
+//	}
 }
