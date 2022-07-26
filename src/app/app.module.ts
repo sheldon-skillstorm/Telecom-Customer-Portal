@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { PlansComponent } from './plans/plans.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
-import { LogInComponent } from './log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
     PlansComponent,
     AboutComponent,
     CartComponent,
-    LogInComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +33,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatBadgeModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
