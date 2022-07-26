@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
-
 import com.teleskill.beans.Plan;
 import com.teleskill.service.PlanService;
 
@@ -31,7 +28,7 @@ public class PlanController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Plan>  save(@RequestBody Plan plan) {
+	public ResponseEntity<Plan> save(@RequestBody Plan plan) {
 		System.out.println("Post called");
 		return new ResponseEntity<>(service.save(plan) ,HttpStatus.CREATED);
 		
