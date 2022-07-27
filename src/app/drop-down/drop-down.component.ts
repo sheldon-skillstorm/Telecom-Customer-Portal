@@ -24,4 +24,8 @@ export class DropDownComponent implements OnInit {
   handleLogout() {
     this.authenticationService.logout();
   }
+
+  goToLogin() {
+    this.router.navigateByUrl('login');
+  }
 }

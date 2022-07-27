@@ -1,0 +1,10 @@
+.button {
+    background-color: rgba(218, 218, 218, 0.614);
+    color: rgb(64, 63, 63);
+    border-radius: 2px;
+    border: 0px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+}
+
