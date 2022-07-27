@@ -16,20 +16,5 @@ export class DropDownComponent implements OnInit {
     private authenticationService: AuthService
   ) {}
 
-<<<<<<< HEAD
   ngOnInit() {}
-=======
-  ngOnInit() {
-    this.isLoggedIn = this.authenticationService.isUserLoggedIn();
-    console.log('menu ->' + this.isLoggedIn);
-  }
-
-  handleLogout() {
-    this.authenticationService.logout();
-  }
-
-  goToLogin() {
-    this.router.navigateByUrl('login');
-  }
->>>>>>> a3d9e2f1e9c8dc346921e05e2f9af2ca3809dae0
 }

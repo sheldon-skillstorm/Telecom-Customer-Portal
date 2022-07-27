@@ -2,14 +2,8 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item>Go to my account</button>
   <button mat-menu-item>See my bill</button>
-<<<<<<< HEAD
   <button mat-menu-item>add plan</button>
   <a [routerLink]="['/login']">Log in</a>
-=======
-  <button mat-menu-item (click)="goToLogin()">Log in</button>
-  <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)="handleLogout()"
-    >Logout</a
-  >
->>>>>>> a3d9e2f1e9c8dc346921e05e2f9af2ca3809dae0
+  <button mat-menu-item>Log in</button>
+  <a *ngIf="" class="nav-link" href="/logout">Logout</a>
 </mat-menu>
-  
