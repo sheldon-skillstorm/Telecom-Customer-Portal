@@ -21,9 +21,8 @@ import {
 } from '@angular/common/http';
 import { DropDownComponent } from './drop-down/drop-down.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { BasicAuthInterceptorService } from './services/basic-auth-interceptor.service';
 import { LogoutComponent } from './logout/logout.component';
-
+import { authInterceptorProviders } from './services/interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,13 +47,7 @@ import { LogoutComponent } from './logout/logout.component';
     HttpClientModule,
     MatMenuModule,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: BasicAuthInterceptorService,
-      multi: true,
-    },
-  ],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

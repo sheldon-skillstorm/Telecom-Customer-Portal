@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +19,13 @@ import com.teleskill.beans.User;
 import com.teleskill.security.AuthRequest;
 import com.teleskill.security.AuthResponse;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AuthApiController {
 	@Autowired AuthenticationManager authManager;
     @Autowired JwtTokenUtil jwtUtil;
      
-    @PostMapping("/auth/login")
+    @PostMapping("/login/signin")
     public ResponseEntity<?> login(@RequestBody @Valid AuthRequest request) {
         try {
             Authentication authentication = authManager.authenticate(
