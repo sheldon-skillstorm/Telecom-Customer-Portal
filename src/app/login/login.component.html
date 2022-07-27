@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="col-md-12">
   <div class="card card-container">
     <img
@@ -69,4 +70,48 @@
       Logged in as {{ roles }}.
     </div>
   </div>
+=======
+<div class="grad">
+  <mat-card style="width: 300px; margin: auto; margin-top: 8%;">
+    <mat-card-title style="text-align: center; margin-bottom: 30px;">Log in</mat-card-title>
+    <mat-card-content>
+      <form class="form-group">
+        <div class="alert alert-warning" *ngIf="invalidLogin">
+          {{ errorMessage }}
+        </div> 
+        <div class="alert alert-success" *ngIf="loginSuccess">
+          {{ successMessage }}
+        </div>
+        <div class="form-group">
+          <label for="email">Username</label><br>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            [(ngModel)]="username"
+            placeholder="Type your username"
+            name="username"
+            style = "margin-bottom: 30px"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password</label><br>
+          <input
+            type="password"
+            class="form-control"
+            [(ngModel)]="password"
+            id="password"
+            placeholder="Type your password"
+            name="password"
+            style = "margin-bottom: 30px"
+          />
+        </div>
+        <button mat-raised-button (click)="handleLogin()" style="width: 300px; background-color: rgba(15, 109, 240, 0.789); color: white;">Log in</button>
+      </form>
+    </mat-card-content>
+  </mat-card> 
+>>>>>>> a3d9e2f1e9c8dc346921e05e2f9af2ca3809dae0
 </div>
+
+
+

@@ -1,8 +1,8 @@
 nav {
   padding-left: 70px;
   padding-right: 10px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 nav a {
@@ -32,3 +32,4 @@ mat-icon {
 .mat-badge-small.mat-badge-above .mat-badge-content {
   right: 0px;
 }
+
