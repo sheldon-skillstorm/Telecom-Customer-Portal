@@ -14,7 +14,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
+import { DropDownComponent } from './drop-down/drop-down.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { BasicAuthInterceptorService } from './services/basic-auth-interceptor.service';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +32,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AboutComponent,
     CartComponent,
     LoginComponent,
+    DropDownComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +46,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatIconModule,
     FormsModule,
     HttpClientModule,
+    MatMenuModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BasicAuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

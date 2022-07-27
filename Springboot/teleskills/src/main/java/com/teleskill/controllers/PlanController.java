@@ -20,7 +20,7 @@ import com.teleskill.beans.Plan;
 import com.teleskill.service.PlanService;
 
 @RestController
-@RequestMapping("/plans/v1")
+@RequestMapping("/api/v1/plans")
 public class PlanController {
 	
 	@Autowired

@@ -1,0 +1,10 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Go to my account</button>
+  <button mat-menu-item>See my bill</button>
+  <button mat-menu-item>add plan</button>
+  <a [routerLink]="['/login']">Log in</a>
+  <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)="handleLogout()"
+    >Logout</a
+  >
+</mat-menu>
