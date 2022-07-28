@@ -19,7 +19,7 @@ export class PlanService {
     return this.http.get<Plan>(this.url + `/${id}`, { observe: 'response' });
   }
 
-  save(owner: Plan): Observable<HttpResponse<Plan>> {
-    return this.http.post<Plan>(this.url, owner, { observe: 'response' });
+  save(plan: Plan): Observable<HttpResponse<Plan>> {
+    return this.http.post<Plan>(this.url, plan, { observe: 'response' });
   }
 }

@@ -24,7 +24,7 @@ import com.teleskill.security.AuthResponse;
 public class AuthApiController {
 	@Autowired AuthenticationManager authManager;
     @Autowired JwtTokenUtil jwtUtil;
-     
+      
     @PostMapping("/login/signin")
     public ResponseEntity<?> login(@RequestBody @Valid AuthRequest request) {
         try {

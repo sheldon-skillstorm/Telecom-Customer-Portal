@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { setLines } from '@angular/material/core';
+import { Device } from '../models/device.model';
+import { Plan } from '../Models/plan.model';
+import { PlanService } from '../services/plan.service';
+import { DeviceService } from '../services/device.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,14 +12,22 @@ import { setLines } from '@angular/material/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  isLoggedIn = true;
+  newPlan: Plan = new Plan(0, "", 0, "", "", "", 0); 
+  devices: Device[] = [];
+  number: string = "";
   name = localStorage.getItem('Name');
   total = 0;
   lines: string[] = [];
   items: number = 0;
   limit: number = 0;
-  errorMessage = 'cannot exceed plan device limit';
 
-  constructor() { }
+
+  constructor(private planService: PlanService, private deviceService: DeviceService, private tokenStorage: TokenStorageService) { 
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+    }
+  }
 
   ngOnInit(): void {
     if (this.name == 'Level 1' || this.name == 'Level 2') {
@@ -28,16 +41,31 @@ export class CartComponent implements OnInit {
     }
 
     if (this.name === 'Level 1') {
+      this.newPlan.name = 'Level 1';
+      this.newPlan.data = '25 GB high-speed data';
+      this.newPlan.hotspot = '3G Unlimited mobile hotspot';
+      this.newPlan.streaming = 'Standard-definition streaming';
+      this.newPlan.limit = 2;
       this.total = 30;
       this.limit = 2;
     }
 
     else if (this.name == 'Level 2') {
+      this.newPlan.name = 'Level 2';
+      this.newPlan.data = 'Unlimited high-speed data';
+      this.newPlan.hotspot = '20 GB high-speed mobile hotspot';
+      this.newPlan.streaming = 'High-definition streaming';
+      this.newPlan.limit = 3;
       this.total = 50;
       this.limit = 3;
     }
 
     else if (this.name == 'Level 3') {
+      this.newPlan.name = 'Level 3';
+      this.newPlan.data = '100 GB high-speed data';
+      this.newPlan.hotspot = '10 GB high-speed mobile hotspot';
+      this.newPlan.streaming = 'Standard-definition streaming';
+      this.newPlan.limit = 7;
       this.total = 75;
       this.limit = 7;
       this.lines.push('line', 'line');
@@ -82,6 +110,21 @@ export class CartComponent implements OnInit {
         this.lines.splice(index, 1);
         this.items--;
       }
+    }
+  }
+
+  addDevice(phoneNumber: string) {
+    this.devices.push(new Device(0, phoneNumber));
+  }
+
+  createPlan(): void {
+    this.newPlan.price = this.total;
+    if(this.isLoggedIn) {
+      this.planService.save(this.newPlan).subscribe(data => {
+      });
+
+      this.deviceService.save(this.devices).subscribe(data => {
+      });
     }
   }
 }

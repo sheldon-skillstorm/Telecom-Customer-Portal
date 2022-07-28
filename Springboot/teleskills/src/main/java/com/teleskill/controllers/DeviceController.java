@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.teleskill.beans.Device;
 
 import com.teleskill.service.DeviceService;
-
+ 
 @RestController
 @RequestMapping("/devices/v1")
 public class DeviceController {

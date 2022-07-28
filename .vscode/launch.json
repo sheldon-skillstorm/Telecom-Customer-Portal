@@ -15,6 +15,16 @@
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-TeleskillsApplication<teleskills>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.teleskill.TeleskillsApplication",
+      "projectName": "teleskills",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

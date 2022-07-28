@@ -18,9 +18,10 @@
                         </mat-panel-title>
                         </mat-expansion-panel-header>
                         <hr style="border: 1px solid rgba(182, 182, 182, 0.373); margin-bottom: 20px;">
-                        <form>
+                        <form id="new-plan" (ngSubmit)="createPlan();">
                             <label for="fname" style="font-weight: 500; color:rgb(86, 86, 86);">Phone Number</label><br>
-                            <input type="text" style="margin-top: 10px;" id="fname" name="fname" placeholder="e.g. (xxx)-xxx-xxxx">
+                            <input type="text" style="margin-top: 10px;" name="number" [(ngModel)]="number" placeholder="e.g. (xxx)-xxx-xxxx">
+                            <button type="button" style="margin-left: 10px" (click)="addDevice('number')">confirm</button>
                         </form>
                     </mat-expansion-panel>
                 </mat-card>
@@ -34,7 +35,7 @@
                 <p style="display: inline; margin-left: 280px; font-size: 20px;">${{total}}/mo.</p>
                 </mat-card-content>
                 <mat-card-actions>
-                <button mat-button class="purchaseButton">Confirm Purchase</button>
+                <button mat-button class="purchaseButton" type="submit">Confirm Purchase</button>
                 </mat-card-actions>
             </mat-card>
         </div>
