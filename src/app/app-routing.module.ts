@@ -6,6 +6,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ManageComponent } from './manage/manage.component';
+import { BillsComponent } from './bills/bills.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'manage-account',
     component: ManageComponent,
+  },
+  {
+    path: 'bills',
+    component: BillsComponent,
   },
   {
     path: 'why-teleskill',

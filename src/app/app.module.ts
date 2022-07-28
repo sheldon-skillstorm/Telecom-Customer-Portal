@@ -24,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LogoutComponent } from './logout/logout.component';
 import { authInterceptorProviders } from './services/interceptor.service';
 import { ManageComponent } from './manage/manage.component';
+import { BillsComponent } from './bills/bills.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { ManageComponent } from './manage/manage.component';
     DropDownComponent,
     LogoutComponent,
     ManageComponent,
+    BillsComponent,
   ],
   imports: [
     BrowserModule,
