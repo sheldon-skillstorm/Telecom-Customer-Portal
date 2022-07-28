@@ -63,20 +63,25 @@ export class CartComponent implements OnInit {
   }
 
   deleteLine(line: any) {
+    let index = this.lines.indexOf(line);
     if (this.name == 'Level 1') {
       this.total -= 30;
+      this.lines.splice(index, 1);
+      this.items--;
     }
 
     else if (this.name == 'Level 2') {
       this.total -= 50;
+      this.lines.splice(index, 1);
+      this.items--;
     }
 
     else if (this.name == 'Level 3') {
-      this.total -= 25;
+      if (this.items > 3) {
+        this.total -= 25;
+        this.lines.splice(index, 1);
+        this.items--;
+      }
     }
-
-    let index = this.lines.indexOf(line);
-    this.lines.splice(index, 1);
-    this.items--;
   }
 }
