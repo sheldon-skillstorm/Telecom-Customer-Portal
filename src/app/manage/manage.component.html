@@ -1,0 +1,58 @@
+<p class="title">My Plans</p>
+<hr>
+<div class="container">
+    <mat-card style="border: 1px solid #ccc;">
+        <mat-card-title style="margin-bottom: 30px;">Level 1</mat-card-title>
+        <mat-card-content>
+            <mat-expansion-panel style="margin-bottom: 20px;">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: 500;">
+                        My devices
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <hr style="border: 1px solid rgba(182, 182, 182, 0.373); margin-bottom: 20px;">
+                <p style="margin: 0; padding: 0; text-decoration: underline; font-weight: 500; color:rgb(86, 86, 86);">Devices (2)</p>
+                <div style="margin-left: -12px; display: inline">
+                    <button mat-icon-button>
+                        <mat-icon style="display: inline">delete</mat-icon>
+                    </button>
+                </div>
+                <p style="display: inline">device 1 #: xxx-xxx-xxxx</p><br>
+                <div style="margin-left: -12px; display: inline">
+                    <button mat-icon-button>
+                        <mat-icon style="display: inline">delete</mat-icon>
+                    </button>
+                </div>
+            <p style="display: inline">device 2 #: xxx-xxx-xxxx</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel style="margin-bottom: 20px;">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: 500;">
+                        Add device
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <hr style="border: 1px solid rgba(182, 182, 182, 0.373); margin-bottom: 20px;">
+                <form>
+                    <label for="fname" style="font-weight: 500; color:rgb(86, 86, 86);">Phone Number</label><br>
+                    <input type="text" style="margin-top: 10px;" id="fname" name="fname" placeholder="e.g. (xxx)-xxx-xxxx">
+                </form>
+            </mat-expansion-panel>
+            <mat-expansion-panel style="margin-bottom: 20px">
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="font-weight: 500;">
+                        View plan details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <hr style="border: 1px solid rgba(182, 182, 182, 0.373); margin-bottom: 20px;">
+                plan description
+            </mat-expansion-panel>
+            
+            <mat-card-actions>
+                <div style="text-align: center;">
+                    <button mat-raised-button class="button">Delete plan</button>
+                </div>
+            </mat-card-actions> 
+        </mat-card-content>
+    </mat-card> 
+</div>
+
