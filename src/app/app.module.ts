@@ -23,6 +23,7 @@ import { DropDownComponent } from './drop-down/drop-down.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { LogoutComponent } from './logout/logout.component';
 import { authInterceptorProviders } from './services/interceptor.service';
+import { ManageComponent } from './manage/manage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { authInterceptorProviders } from './services/interceptor.service';
     LoginComponent,
     DropDownComponent,
     LogoutComponent,
+    ManageComponent,
   ],
   imports: [
     BrowserModule,

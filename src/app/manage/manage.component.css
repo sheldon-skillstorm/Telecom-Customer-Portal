@@ -1,0 +1,22 @@
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: #202020f1; 
+    margin-left: 10%; 
+}
+
+.container {
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-top: 50px;
+    width: 350px;
+}
+
+.button {
+    background-color: rgba(240, 15, 15, 0.789); 
+    color: white; 
+    width: 320px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}

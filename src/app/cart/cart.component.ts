@@ -11,6 +11,8 @@ export class CartComponent implements OnInit {
   total = 0;
   lines: string[] = [];
   items: number = 0;
+  limit: number = 0;
+  errorMessage = 'cannot exceed plan device limit';
 
   constructor() { }
 
@@ -22,32 +24,36 @@ export class CartComponent implements OnInit {
 
     if (this.name === 'Level 1') {
       this.total = 30;
+      this.limit = 2;
     }
 
     else if (this.name == 'Level 2') {
       this.total = 50;
+      this.limit = 3;
     }
 
     else if (this.name == 'Level 3') {
       this.total = 25;
+      this.limit = 7;
     }
   }
 
   addLine() {
-    if (this.name == 'Level 1') {
-      this.total += 30;
+    if (this.items < this.limit) {
+      if (this.name == 'Level 1') {
+        this.total += 30;
+      }
+  
+      else if (this.name == 'Level 2') {
+        this.total += 50;
+      }
+  
+      else if (this.name == 'Level 3') {
+        this.total += 25;
+      }
+      this.items++;
+      this.lines.push('line');
     }
-
-    else if (this.name == 'Level 2') {
-      this.total += 50;
-    }
-
-    else if (this.name == 'Level 3') {
-      this.total += 25;
-    }
-
-    this.lines.push('line');
-    this.items++;
   }
 
   deleteLine(line: any) {

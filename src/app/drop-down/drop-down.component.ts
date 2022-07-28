@@ -17,4 +17,12 @@ export class DropDownComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  goToLogin() {
+    this.router.navigateByUrl('login');
+  }
+
+  goToAccount() {
+    this.router.navigateByUrl('manage-account');
+  }
 }
