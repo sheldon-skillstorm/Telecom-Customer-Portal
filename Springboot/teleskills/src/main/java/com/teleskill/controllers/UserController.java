@@ -14,53 +14,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.teleskill.beans.Customer;
-
-import com.teleskill.service.CustomerService;
-
+import com.teleskill.beans.Plan;
+import com.teleskill.beans.User;
+import com.teleskill.service.PlanService;
+import com.teleskill.service.UserService;
 
 @RestController
-@RequestMapping("/customers/v1")
-public class CustomerController {
-	
-	
+@RequestMapping("/users")
+public class UserController {
 	@Autowired
-	private CustomerService service;
+	private UserService service;
 	
-	
-	public CustomerController() {
+	public UserController() {
 		System.out.println("Controller created!");
-		
 	}
 	
 	@PostMapping
-	public ResponseEntity<Customer> save( @RequestBody Customer customer) {
+	public ResponseEntity<User>  save(@RequestBody User user) {
 		System.out.println("Post called");
-		return new ResponseEntity<>(service.save(customer) ,HttpStatus.CREATED);
+		return new ResponseEntity<>(service.save(user) ,HttpStatus.CREATED);
 		
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Customer>> findAll() {
+	public ResponseEntity<List<User>> findAll() {
 		System.out.println("Get called");
-		return new ResponseEntity<List<Customer>>(service.findAll() ,HttpStatus.OK);
-		
+		return new ResponseEntity<List<User>>(service.findAll() ,HttpStatus.OK);
 	}
+	
+	
 	@GetMapping("/{id}")
-	public ResponseEntity<Customer>  getCustomer(@PathVariable int id) {
-		//System.out.println("name: " + name);
-		return new ResponseEntity<Customer> (service.find(id),HttpStatus.OK) ;
+	public ResponseEntity<User>  getUser(@PathVariable int id) {
+		return new ResponseEntity<User> (service.find(id),HttpStatus.OK) ;
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteCustomer(@PathVariable int id){
+	public void deleteUser(@PathVariable int id){
 		 service.delete(id) ;
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Customer>  update(@RequestBody Customer customer, @PathVariable int id) {
+	public ResponseEntity<User>  update(@RequestBody User user, @PathVariable int id) {
 		
-		return new ResponseEntity<Customer> (service.update(customer, id),HttpStatus.OK) ;
+		return new ResponseEntity<User> (service.update(user, id),HttpStatus.OK) ;
 	}
 
 }

@@ -46,7 +46,7 @@ public class BillController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Bill>  getBill(@PathVariable int id) {
-		//System.out.println("name: " + name);
+		
 		return new ResponseEntity<Bill> (service.find(id),HttpStatus.OK) ;
 	}
 	

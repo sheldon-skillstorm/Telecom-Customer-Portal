@@ -38,10 +38,6 @@ public class Bill {
 	@Column
 	private double total;
 	
-	@ManyToOne
-	@JoinColumn(name = "customerid")
-	//@JsonManagedReference("ownerVehicles")
-	private Customer customer;
 	
 	public Bill() {
 		super();
@@ -49,7 +45,7 @@ public class Bill {
 	}
 	
 	public Bill(int id, Date invoicedate, String billingaddress, String billingcity, String billingstate,
-			String billingcountry, String billingpostalcode, double total, Customer customer) {
+			String billingcountry, String billingpostalcode, double total) {
 		super();
 		this.id = id;
 		this.invoicedate = invoicedate;
@@ -59,7 +55,7 @@ public class Bill {
 		this.billingcountry = billingcountry;
 		this.billingpostalcode = billingpostalcode;
 		this.total = total;
-		this.customer = customer;
+		
 	}
 
 	public int getId() {
@@ -127,14 +123,7 @@ public class Bill {
 	}
 	
 	
-	public Customer getCustomer() {
-		return customer;
-	}
 
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 
 
 
@@ -142,8 +131,7 @@ public class Bill {
 	public String toString() {
 		return "Bill [id=" + id + ", invoicedate=" + invoicedate + ", billingaddress=" + billingaddress
 				+ ", billingcity=" + billingcity + ", billingstate=" + billingstate + ", billingcountry="
-				+ billingcountry + ", billingpostalcode=" + billingpostalcode + ", total=" + total + ", customer="
-				+ customer + "]";
+				+ billingcountry + ", billingpostalcode=" + billingpostalcode + ", total=" + total + "]";
 	}
 	
 	

@@ -18,22 +18,19 @@ public class Device {
     @Column
 	private int price;
     
-    @ManyToOne
-	@JoinColumn(name = "customerid")
-	//@JsonManagedReference("ownerVehicles")
-	private Customer customer;
+   
 	
 	public Device() {
 		super();
 	}
 	
 
-	public Device(int id, String name, int price, Customer customer) {
+	public Device(int id, String name, int price) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.customer = customer;
+		
 	}
 
 	public int getId() {
@@ -62,19 +59,11 @@ public class Device {
 	
 	
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
+	
 
 	@Override
 	public String toString() {
-		return "Device [id=" + id + ", name=" + name + ", price=" + price + ", customer=" + customer + "]";
+		return "Device [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
 
 

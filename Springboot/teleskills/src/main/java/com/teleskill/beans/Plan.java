@@ -1,15 +1,26 @@
 package com.teleskill.beans;
 
+import java.util.Objects;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 
 @Entity
+
 public class Plan {
 	
 	@Id
@@ -34,19 +45,45 @@ public class Plan {
 	@Column
 	private int devicelimit;
 	
-	@ManyToOne
-	@JoinColumn(name = "customerid")
-	//@JsonManagedReference("ownerVehicles")
-	private Customer customer;
+	@OneToMany(mappedBy = "plans")
+	@JsonIgnore
+	 Set<ActivePlan> plan;
 	
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(data, devicelimit, hotspot, id, name, price, streaming);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Plan other = (Plan) obj;
+		return Objects.equals(data, other.data) && devicelimit == other.devicelimit
+				&& Objects.equals(hotspot, other.hotspot) && id == other.id && Objects.equals(name, other.name)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
+				&& Objects.equals(streaming, other.streaming);
+	}
+
+
+
 	public Plan() {
 		super();
 		
 	}
 
+	
 
-	public Plan(int id, String name, double price, String data, String hotspot, String streaming, int devicelimit,
-			Customer customer) {
+	public Plan(int id, String name, double price, String data, String hotspot, String streaming, int devicelimit
+			,Set<ActivePlan> plan) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -55,8 +92,11 @@ public class Plan {
 		this.hotspot = hotspot;
 		this.streaming = streaming;
 		this.devicelimit = devicelimit;
-		this.customer = customer;
+		this.plan = plan;
 	}
+
+
+
 
 
 	public int getId() {
@@ -128,21 +168,26 @@ public class Plan {
 		this.devicelimit = devicelimit;
 	}
 	
-	public Customer getCustomer() {
-		return customer;
+	
+
+
+	public Set<ActivePlan> getPlan() {
+		return plan;
 	}
 
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setPlan(Set<ActivePlan> plan) {
+		this.plan = plan;
 	}
+	
+	
 
 
-	@Override
-	public String toString() {
-		return "Plan [id=" + id + ", name=" + name + ", price=" + price + ", data=" + data + ", hotspot=" + hotspot
-				+ ", streaming=" + streaming + ", devicelimit=" + devicelimit + ", customer=" + customer + "]";
-	}
+
+
+
+
+
 	
 	
 
