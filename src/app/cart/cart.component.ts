@@ -17,9 +17,14 @@ export class CartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (this.name != null) {
+    if (this.name == 'Level 1' || this.name == 'Level 2') {
       this.lines = ['line']
       this.items = 1;
+    }
+
+    else { 
+      this.items = 3; 
+      this.lines = ['line'];
     }
 
     if (this.name === 'Level 1') {
@@ -33,8 +38,9 @@ export class CartComponent implements OnInit {
     }
 
     else if (this.name == 'Level 3') {
-      this.total = 25;
+      this.total = 75;
       this.limit = 7;
+      this.lines.push('line', 'line');
     }
   }
 

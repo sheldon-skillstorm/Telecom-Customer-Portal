@@ -25,4 +25,8 @@ export class DropDownComponent implements OnInit {
   goToAccount() {
     this.router.navigateByUrl('manage-account');
   }
+
+  goToBills() {
+    this.router.navigateByUrl('bills');
+  }
 }

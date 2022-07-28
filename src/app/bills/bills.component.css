@@ -1,0 +1,14 @@
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: #202020f1; 
+    margin-left: 10%; 
+}
+
+.container {
+    margin-left: 10%;
+    margin-top: 50px;
+    width: 50%;
+}
+
