@@ -16,19 +16,21 @@ public class Device {
     @Column
 	private String name;
     @Column
-    private String number;
-   
-   
+
+	private int price;  
+	@Column
+	private String number;
 	
 	public Device() {
 		super();
 	}
 
-	public Device(int id, String name, String number) {
+	public Device(int id, String name, int price, String number) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.number = number;
+		this.price = price;
+		this.number = number;	
 	}
 
 
@@ -65,15 +67,18 @@ public class Device {
 		return "Device [id=" + id + ", name=" + name + ", number=" + number + "]";
 	}
 	
-	
-	
-	
+	public String getNumber() {
+		return number;
+	}
 
-
+	public void setNumber(String number) {
+		this.number = number;
+	}
 	
-
-	
-
+	@Override
+	public String toString() {
+		return "Device [id=" + id + ", name=" + name + ", price=" + price + ", number=" + number + "]";
+	}
 
 	
 	

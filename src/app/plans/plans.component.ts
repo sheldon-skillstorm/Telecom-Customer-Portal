@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Plan } from '../Models/plan.model';
+import { Plan } from '../models/plan.model';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,7 +9,6 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./plans.component.css'],
 })
 export class PlansComponent implements OnInit {
-  planName: string = 'Name';
   PlanList: Plan[] = [];
 
   constructor(private userService: UserService, private router: Router) {}
@@ -27,7 +26,15 @@ export class PlansComponent implements OnInit {
     this.router.navigateByUrl('cart');
   }
 
-  storePlan(name: any) {
-    localStorage.setItem(this.planName, name);
+  storePlan1(name: any) {
+    localStorage.setItem('Plan 1', name);
+  }
+
+  storePlan2(name: any) {
+    localStorage.setItem('Plan 2', name);
+  }
+
+  storePlan3(name: any) {
+    localStorage.setItem('Plan 3', name);
   }
 }
