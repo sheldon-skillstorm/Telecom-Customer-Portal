@@ -17,7 +17,7 @@ export class PlansComponent implements OnInit {
     this.userService.findAll().subscribe((data) => {
       // console.log('body: ' + data.body);
       if (data.body != null) {
-        this.PlanList = data.body;
+        //this.PlanList = data.body;
       }
     });
   }

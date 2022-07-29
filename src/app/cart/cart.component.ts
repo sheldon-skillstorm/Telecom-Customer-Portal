@@ -14,18 +14,18 @@ import { DeviceComponent } from '../device/device.component';
 })
 export class CartComponent implements OnInit {
   isLoggedIn = false;
-  newPlan: Plan = new Plan(0, "", 0, "", "", "", 0); 
+  newPlan: Plan = new Plan(0, '', 0, '', '', '', 0);
   devices: Device[] = [];
-  number: string = "";
+  number: string = '';
 
   plan1 = localStorage.getItem('Plan 1');
   plan2 = localStorage.getItem('Plan 2');
   plan3 = localStorage.getItem('Plan 3');
   plans = [this.plan1, this.plan2, this.plan3];
 
-  plan1Lines = []
-  plan2Lines = []
-  plan3Lines = []
+  plan1Lines = [];
+  plan2Lines = [];
+  plan3Lines = [];
 
   plan1Items = 0;
   plan2Items = 0;
@@ -38,7 +38,6 @@ export class CartComponent implements OnInit {
   plan1Total = 0;
   plan2Total = 0;
   plan3Total = 0;
-
 
   constructor(
     private planService: PlanService,
@@ -70,13 +69,9 @@ export class CartComponent implements OnInit {
   addLine(plan) {
     if (plan == 'Level 1') {
       this.addLine1();
-    }
-
-    else if (plan == 'Level 2') {
+    } else if (plan == 'Level 2') {
       this.addLine2();
-    }
-
-    else if (plan == 'Level 3') {
+    } else if (plan == 'Level 3') {
       this.addLine3();
     }
   }
@@ -108,13 +103,9 @@ export class CartComponent implements OnInit {
   deleteLine(plan, line) {
     if (plan == 'Level 1') {
       this.deleteLine1(line);
-    }
-
-    else if (plan == 'Level 2') {
+    } else if (plan == 'Level 2') {
       this.deleteLine2(line);
-    }
-
-    else if (plan == 'Level 3') {
+    } else if (plan == 'Level 3') {
       this.deleteLine3(line);
     }
   }
@@ -150,7 +141,7 @@ export class CartComponent implements OnInit {
     this.deviceService.findAll().subscribe((data) => {
       //console.log("body: " + data.body);
       if (data.body != null) {
-        this.device = data.body;
+        // this.device = data.body;
       }
     });
   }
@@ -158,23 +149,20 @@ export class CartComponent implements OnInit {
   deletePlan(plan) {
     if (plan === 'Level 1') {
       localStorage.removeItem('Plan 1');
-    }
-    else if (plan === 'Level 2') {
+    } else if (plan === 'Level 2') {
       localStorage.removeItem('Plan 2');
-    }
-    else if (plan === 'Level 3') {
+    } else if (plan === 'Level 3') {
       localStorage.removeItem('Plan 3');
     }
     location.reload();
   }
 
   createPlan(): void {
-  //  this.newPlan.price = this.total;
-    if(this.isLoggedIn) {
-      this.planService.save(this.newPlan).subscribe(data => {
-      });
+    //  this.newPlan.price = this.total;
+    if (this.isLoggedIn) {
+      this.planService.save(this.newPlan).subscribe((data) => {});
 
-      this.deviceService.save(this.device).subscribe((data) => {});
+      //this.deviceService.save(this.device).subscribe((data) => {});
     }
   }
 }

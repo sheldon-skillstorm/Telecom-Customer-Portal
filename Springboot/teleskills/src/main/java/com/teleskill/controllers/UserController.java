@@ -20,7 +20,7 @@ import com.teleskill.service.PlanService;
 import com.teleskill.service.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/users/v1")
 public class UserController {
 	@Autowired
 	private UserService service;

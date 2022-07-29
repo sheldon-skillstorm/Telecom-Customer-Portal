@@ -16,3 +16,19 @@
     </tbody>
   </table>
 </div>
+<div class="card my-5">
+  <div class="card-body">
+    <form id="new-plan" (ngSubmit)="createDevice()">
+      <label for="fname" style="font-weight: 500; color: rgb(86, 86, 86)"
+        >Phone Number</label
+      ><br />
+      <input
+        type="text"
+        style="margin-top: 10px"
+        name="number"
+        placeholder="e.g. (xxx)-xxx-xxxx"
+      />
+      <button type="button" style="margin-left: 10px">confirm</button>
+    </form>
+  </div>
+</div>

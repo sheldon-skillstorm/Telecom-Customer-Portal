@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Device } from '../Models/device.model';
+import { Device } from '../models/device.model';
 import { DeviceService } from '../services/device.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-device',
@@ -9,11 +10,19 @@ import { DeviceService } from '../services/device.service';
   styleUrls: ['./device.component.css'],
 })
 export class DeviceComponent implements OnInit {
+  isLoggedIn = true;
   device: Device[];
   newDevice: Device = new Device(0, '', '');
   router: any;
 
-  constructor(private deviceService: DeviceService) {}
+  constructor(
+    private deviceService: DeviceService,
+    private tokenStorage: TokenStorageService
+  ) {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+    }
+  }
 
   ngOnInit(): void {
     this.deviceService.findAll().subscribe((data) => {
@@ -24,7 +33,9 @@ export class DeviceComponent implements OnInit {
     });
   }
 
-  // create(): void {
-  //   this.deviceService.save(this.newDevice).subscribe((data) => {});
-  // }
+  createDevice(): void {
+    if (this.isLoggedIn) {
+      this.deviceService.save(this.newDevice).subscribe((data) => {});
+    }
+  }
 }

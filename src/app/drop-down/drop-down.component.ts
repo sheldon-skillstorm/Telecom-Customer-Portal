@@ -33,7 +33,4 @@ export class DropDownComponent implements OnInit {
   goToDevice() {
     this.router.navigateByUrl('device');
   }
-  goToPlan() {
-    this.router.navigateByUrl('plans');
-  }
 }
