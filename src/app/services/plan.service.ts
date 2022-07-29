@@ -1,7 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Plan } from '../Models/plan.model';
+import { Plan } from '../models/plan.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class PlanService {
   find(id: number): Observable<HttpResponse<Plan>> {
     return this.http.get<Plan>(this.url + `/${id}`, { observe: 'response' });
   }
-
+ 
   save(plan: Plan): Observable<HttpResponse<Plan>> {
     return this.http.post<Plan>(this.url, plan, { observe: 'response' });
   }

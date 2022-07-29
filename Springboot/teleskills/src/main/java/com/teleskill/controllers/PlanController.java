@@ -31,7 +31,7 @@ public class PlanController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Plan>  save(@RequestBody Plan plan) {
+	public ResponseEntity<Plan> save(@RequestBody Plan plan) {
 		System.out.println("Post called");
 		return new ResponseEntity<>(service.save(plan) ,HttpStatus.CREATED);
 		

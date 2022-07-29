@@ -1,0 +1,18 @@
+.title {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+    color: #ae0091;  
+    margin: 0;
+    padding: 0;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.container {
+    text-align:center;
+    padding-left: 26%;
+    padding-right: 26%;
+    padding-top: 2%;
+}

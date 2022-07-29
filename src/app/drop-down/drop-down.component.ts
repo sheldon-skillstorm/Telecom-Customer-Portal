@@ -23,10 +23,10 @@ export class DropDownComponent implements OnInit {
   }
 
   goToAccount() {
-    this.router.navigateByUrl('manage-account');
+    this.router.navigateByUrl('cart');
   }
 
-  goToBills() {
-    this.router.navigateByUrl('bills');
+  goToPlan() {
+    this.router.navigateByUrl('plans');
   }
 }

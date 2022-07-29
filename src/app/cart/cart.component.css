@@ -29,10 +29,20 @@
 .addLine {
     display: inline-block;
     margin-bottom: 0px;
-    margin-left: 75px;
+    margin-left: 35px;
     margin-bottom: 20px;
     border-color: rgba(4, 98, 230, 0.948);
     color: rgba(4, 98, 230, 0.948);
+    background-color: white;
+}
+
+.deletePlan {
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+    border-color: rgb(255, 48, 6);
+    color: rgb(255, 1, 1);
     background-color: white;
 }
 

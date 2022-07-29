@@ -1,7 +1,7 @@
 <button [matMenuTriggerFor]="menu" class="button">Account</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="goToAccount()">Go to my account</button>
-  <button mat-menu-item (click)="goToBills()">See my bill</button>
+  <button mat-menu-item (click)="goToPlan()">Add a plan</button>
   <button mat-menu-item (click)="goToLogin()">Log in</button>
   <a *ngIf="" class="nav-link" href="/logout">Logout</a>
 </mat-menu>
