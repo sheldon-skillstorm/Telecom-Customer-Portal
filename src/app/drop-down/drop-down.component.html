@@ -2,6 +2,8 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="goToAccount()">Go to my account</button>
   <button mat-menu-item (click)="goToBills()">See my bill</button>
+  <button mat-menu-item (click)="goToPlan()">add plan</button>
   <button mat-menu-item (click)="goToLogin()">Log in</button>
-  <a *ngIf="" class="nav-link" href="/logout">Logout</a>
+  <button mat-menu-item (click)="goToDevice()">device</button>
+  <a *ngIf="isLoggedIn" class="nav-link" href="/logout">Logout</a>
 </mat-menu>

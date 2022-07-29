@@ -26,6 +26,7 @@ import { authInterceptorProviders } from './services/interceptor.service';
 import { ManageComponent } from './manage/manage.component';
 import { BillsComponent } from './bills/bills.component';
 import { UserComponent } from './user/user.component';
+import { DeviceComponent } from './device/device.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { UserComponent } from './user/user.component';
     ManageComponent,
     BillsComponent,
     UserComponent,
+    DeviceComponent,
   ],
   imports: [
     BrowserModule,

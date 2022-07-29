@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ManageComponent } from './manage/manage.component';
 import { BillsComponent } from './bills/bills.component';
+import { DeviceComponent } from './device/device.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LoginComponent,
+  },
+  {
+    path: 'device',
+    component: DeviceComponent,
   },
 ];
 

@@ -1,9 +1,11 @@
 export class Device {
-    id: number;
-    number: string;
-    
-    constructor(id: number, number: string) {
-        this.id = id;
-        this.number = number;
-    }
+  id: number;
+  name: string;
+  number: string;
+
+  constructor(id: number, name: string, number: string) {
+    this.id = id;
+    this.number = number;
+    this.name = name;
+  }
 }
