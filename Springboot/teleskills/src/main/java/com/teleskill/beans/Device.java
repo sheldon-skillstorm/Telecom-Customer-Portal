@@ -16,6 +16,7 @@ public class Device {
     @Column
 	private String name;
     @Column
+
 	private int price;  
 	@Column
 	private String number;
@@ -23,7 +24,6 @@ public class Device {
 	public Device() {
 		super();
 	}
-	
 
 	public Device(int id, String name, int price, String number) {
 		super();
@@ -32,6 +32,11 @@ public class Device {
 		this.price = price;
 		this.number = number;	
 	}
+
+
+
+
+
 
 	public int getId() {
 		return id;
@@ -49,12 +54,17 @@ public class Device {
 		this.name = name;
 	}
 
-	public int getPrice() {
-		return price;
+	public String getNumber() {
+		return number;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	@Override
+	public String toString() {
+		return "Device [id=" + id + ", name=" + name + ", number=" + number + "]";
 	}
 	
 	public String getNumber() {
@@ -65,12 +75,10 @@ public class Device {
 		this.number = number;
 	}
 	
-
 	@Override
 	public String toString() {
 		return "Device [id=" + id + ", name=" + name + ", price=" + price + ", number=" + number + "]";
 	}
-
 
 	
 	

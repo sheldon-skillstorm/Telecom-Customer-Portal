@@ -1,14 +1,17 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../Models/device.model';
 import { DeviceService } from '../services/device.service';
 
 @Component({
-  selector: 'app-manage',
-  templateUrl: './manage.component.html',
-  styleUrls: ['./manage.component.css'],
+  selector: 'app-device',
+  templateUrl: './device.component.html',
+  styleUrls: ['./device.component.css'],
 })
-export class ManageComponent implements OnInit {
-  public device: Device[];
+export class DeviceComponent implements OnInit {
+  device: Device[];
+  newDevice: Device = new Device(0, '', '');
+  router: any;
 
   constructor(private deviceService: DeviceService) {}
 
@@ -20,4 +23,8 @@ export class ManageComponent implements OnInit {
       }
     });
   }
+
+  // create(): void {
+  //   this.deviceService.save(this.newDevice).subscribe((data) => {});
+  // }
 }

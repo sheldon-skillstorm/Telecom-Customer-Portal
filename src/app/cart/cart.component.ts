@@ -5,11 +5,12 @@ import { Plan } from '../models/plan.model';
 import { PlanService } from '../services/plan.service';
 import { DeviceService } from '../services/device.service';
 import { TokenStorageService } from '../services/token-storage.service';
+import { DeviceComponent } from '../device/device.component';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
   isLoggedIn = false;
@@ -39,7 +40,11 @@ export class CartComponent implements OnInit {
   plan3Total = 0;
 
 
-  constructor(private planService: PlanService, private deviceService: DeviceService, private tokenStorage: TokenStorageService) { 
+  constructor(
+    private planService: PlanService,
+    private deviceService: DeviceService,
+    private tokenStorage: TokenStorageService
+  ) {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
     }
@@ -141,8 +146,13 @@ export class CartComponent implements OnInit {
     }
   }
 
-  addDevice(phoneNumber: string) {
-    this.devices.push(new Device(0, phoneNumber));
+  public getDevice(): void {
+    this.deviceService.findAll().subscribe((data) => {
+      //console.log("body: " + data.body);
+      if (data.body != null) {
+        this.device = data.body;
+      }
+    });
   }
 
   deletePlan(plan) {
@@ -164,8 +174,7 @@ export class CartComponent implements OnInit {
       this.planService.save(this.newPlan).subscribe(data => {
       });
 
-      this.deviceService.save(this.devices).subscribe(data => {
-      });
+      this.deviceService.save(this.device).subscribe((data) => {});
     }
   }
 }
